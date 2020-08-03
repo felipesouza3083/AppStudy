@@ -1,0 +1,46 @@
+<div class="row" [hidden]="!mensagem">
+  <div class="col-md-12">
+    <div class="alert alert-secondary">
+      <strong>{{mensagem}}</strong>
+      <button type="button" class="close" aria-label="Close" (click)="fecharMensagens()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h4>Login de Usuários</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <form #formLogin="ngForm" (submit)="autenticar(formLogin)">
+      <div class="form-group">
+        <label>Email de Acesso:</label>
+        <input type="text" class="form-control" placeholder="Email" autocomplete="off" name="email" ngModel />
+      </div>
+      <div class="form-group">
+        <label>Senha de Acesso:</label>
+        <input type="password" class="form-control" placeholder="Senha" autocomplete="off" name="senha" ngModel />
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-secondary btn-sm" value="Acessar Sistema" />
+      </div>
+    </form>
+
+    <div class="row" [hidden]="!acessoNegado">
+      <div class="col-md-12">
+        <div class="alert alert-danger">
+          <strong>{{acessoNegado}}</strong>
+          <button type="button" class="close" aria-label="Close" (click)="fecharMensagens()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

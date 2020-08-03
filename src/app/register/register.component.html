@@ -1,0 +1,51 @@
+<div class="row" [hidden]="!mensagem">
+  <div class="col-md-12">
+    <div class="alert alert-secondary">
+      <strong>{{mensagem}}</strong>
+      <button type="button" class="close" aria-label="Close" (click)="fecharMensagem()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h4>Cadastro de Usuários</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <form #formRegister="ngForm" (submit)="cadastrar(formRegister)">
+      <div class="form-group">
+        <label>Nome do Usuário:</label>
+        <input type="text" class="form-control" placeholder="Nome" autocomplete="off" name="nome" ngModel />
+      </div>
+      <div class="form-group">
+        <label>Email de Acesso:</label>
+        <input type="text" class="form-control" placeholder="Email" autocomplete="off" name="email" ngModel />
+      </div>
+      <div class="form-group">
+        <label>Senha de Acesso:</label>
+        <input type="password" class="form-control" placeholder="Senha" autocomplete="off" name="senha" ngModel />
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-secondary btn-sm" value="Realizar Cadastro" />
+      </div>
+    </form>
+  </div>
+
+  <div class="col-md-8 text-danger">
+    <ul>
+      <li *ngFor="let item of validationErrors">
+        <strong>{{item.propertyName}}</strong>
+        <ul>
+          <li *ngFor="let e of item.errors">
+            {{e}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
